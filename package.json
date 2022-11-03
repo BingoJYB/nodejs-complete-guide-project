@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-complete-guide-project",
+  "version": "1.0.0",
+  "description": "nodejs exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "Bingo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
