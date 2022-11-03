@@ -1,6 +1,6 @@
 let http = require('http');
+let express = require('express');
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-}).listen(8080);
+let app = express();
+
+http.createServer(app).listen(8080);
