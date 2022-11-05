@@ -1,16 +1,13 @@
-let http = require('http');
-let express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser');
+const adminRouter = require('./routers/admin');
+const shopRouter = require('./routers/shop');
 
-let app = express();
+const app = express();
 
-app.use("/add-product", (req, res, next) => {
-  console.log("Call '/add-product'");
-  res.send("<h1>Call '/add-product'</h1>")
-});
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", (req, res, next) => {
-  console.log("Call '/'");
-  res.send("<h1>Call '/'</h1>")
-});
+app.use(adminRouter);
+app.use(shopRouter);
 
 app.listen(8080);
