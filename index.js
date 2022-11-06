@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const adminData = require('./routers/admin');
+const adminRouter = require('./routers/admin');
 const shopRouter = require('./routers/shop');
 const rootDir = require('./util/path');
 
@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(rootDir, 'public')));
 
-app.use('/admin', adminData.routers);
+app.use('/admin', adminRouter);
 app.use(shopRouter);
 
 app.use((req, res, next) => {
