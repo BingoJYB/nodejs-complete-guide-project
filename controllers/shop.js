@@ -89,7 +89,7 @@ exports.postOrder = (req, res, next) => {
         }
       });
       const order = new Order({
-        user: { 
+        user: {
           name: req.user.name,
           userId: req.user
         },
@@ -108,8 +108,10 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  req.user
-    .getOrders()
+  Order.find()
+    .then(orders => {
+      return orders.filter(order => order.user.userId.toString() == req.user._id.toString());
+    })
     .then(orders => {
       res.render('shop/orders', {
         path: '/orders',
